@@ -456,38 +456,118 @@
         /* Print styles */
         @media print {
             body {
-                background: white;
-                color: black;
+                background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+                color: var(--text);
             }
 
             body::before {
-                display: none;
+                display: block;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
             section,
             header {
-                background: white;
-                border: 1px solid #ccc;
+                background: rgba(26, 31, 58, 0.8);
+                border: 1px solid var(--border);
                 box-shadow: none;
                 break-inside: avoid;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
-            h1,
-            h2,
+            h1 {
+                background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            h2 {
+                color: var(--accent);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
             .job-title,
             .degree {
-                color: #000;
-                background: none;
-                -webkit-text-fill-color: #000;
+                color: var(--accent);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
             .website-link {
-                background: #000;
-                color: white;
+                background: var(--accent);
+                color: var(--primary);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
             .profile-image {
-                border-color: #000;
+                border-color: var(--accent);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .skill-tag {
+                background: rgba(0, 217, 255, 0.1);
+                border: 1px solid var(--accent);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .cert-item {
+                background: rgba(255, 107, 53, 0.1);
+                border-left: 3px solid var(--accent-warm);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .education-item {
+                background: rgba(0, 217, 255, 0.05);
+                border-left: 3px solid var(--accent);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .passion-section {
+                background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 107, 53, 0.1));
+                border: 2px solid var(--accent);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .tagline {
+                color: var(--accent);
+                border-left: 3px solid var(--accent);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .contact-item::before {
+                color: var(--accent);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .contact-item a {
+                color: var(--text);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            h2::before {
+                color: var(--accent-warm);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* Force all colors to print */
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
@@ -517,7 +597,6 @@
                             <a href="https://www.linkedin.com/in/rahman-saaban"
                                 target="_blank">linkedin.com/in/rahman-saaban</a>
                         </div>
-
                     </div>
                 </div>
             </div>
