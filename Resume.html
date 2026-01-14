@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahman Saaban - Cloud & Infrastructure Architect</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Crimson+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0e27;
+            --secondary: #1a1f3a;
+            --accent: #00d9ff;
+            --accent-warm: #ff6b35;
+            --text: #e8eaed;
+            --text-dim: #a0a5b8;
+            --border: #2a3050;
+            --glow: rgba(0, 217, 255, 0.3);
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: 0;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            background: rgba(26, 31, 58, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--glow), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+
+            0%,
+            100% {
+                left: -100%;
+            }
+
+            50% {
+                left: 100%;
+            }
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--text-dim);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            color: var(--accent);
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item::before {
+            content: '>';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .contact-item a {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover a {
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--glow);
+        }
+
+        /* Section */
+        section {
+            background: rgba(26, 31, 58, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        section:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        section:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        section:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        section:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        section:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::before {
+            content: '//';
+            color: var(--accent-warm);
+        }
+
+        h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .job-header {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .job-title {
+            color: var(--accent);
+        }
+
+        .job-duration {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-top: 5px;
+        }
+
+        .job-location {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        li::marker {
+            color: var(--accent);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 12px 18px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 217, 255, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px var(--glow);
+        }
+
+        .certifications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cert-item {
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 3px solid var(--accent-warm);
+            padding: 15px 20px;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            background: rgba(255, 107, 53, 0.15);
+            transform: translateX(5px);
+        }
+
+        .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(0, 217, 255, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .degree {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .university {
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+
+        .edu-details {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .passion-section {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 107, 53, 0.1));
+            border: 2px solid var(--accent);
+        }
+
+        .passion-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .website-link {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .website-link:hover {
+            background: var(--accent-warm);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            header,
+            section {
+                padding: 30px 25px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            body::before {
+                display: none;
+            }
+
+            section,
+            header {
+                background: white;
+                border: 1px solid #ccc;
+                box-shadow: none;
+                break-inside: avoid;
+            }
+
+            h1,
+            h2,
+            .job-title,
+            .degree {
+                color: #000;
+                background: none;
+                -webkit-text-fill-color: #000;
+            }
+
+            .website-link {
+                background: #000;
+                color: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Rahman Saaban</h1>
+            <p class="subtitle">Cloud, VoIP & Infrastructure Architect | Tech Enthusiast</p>
+            <p class="tagline">"Full-stack technologist who understands technology from the lowest network layers to the
+                highest application logic"</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <a href="tel:+60147191644">+60 147191644</a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:rahmansaaban.excel@gmail.com">rahmansaaban.excel@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://www.linkedin.com/in/rahman-saaban"
+                        target="_blank">linkedin.com/in/rahman-saaban</a>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <p>I am a full-stack technologist who understands technology from the lowest network layers to the highest
+                application logic. I don't just handle apps but I can also build the ecosystem that supports, secures and
+                scales them.</p>
+
+            <p style="margin-top: 15px;">From the moment a user opens a browser, I understand how DNS is resolved, how
+                Layer 2 MAC addresses help with packet delivery, how NAT translates IPs and how TCP/TLS encryption
+                ensures security. I follow every packet as it flows through routers, firewalls and load balancers, all
+                the way to the web server where reverse proxies inspect headers and direct traffic.</p>
+
+            <p style="margin-top: 15px;">On the application side, I'm fluent in modern web stacks: React, Node.js,
+                PostgreSQL, JWT, bcrypt, multer and more. I develop backend logic, APIs, authentication systems, file
+                handling services and database structures. I also know how to containerize and orchestrate these systems
+                using Docker, NGINX and cloud services on AWS (EC2, RDS, Route 53).</p>
+
+            <p style="margin-top: 15px;">Beyond that, I specialize in VoIP engineering. I've configured, managed and
+                debugged complex SIP infrastructures involving Telcobridges, AudioCodes and Yeastar. I read SIP headers,
+                SDP payloads and RTP traces to resolve latency, one-way audio, codec mismatches and registration errors.
+            </p>
+
+            <p style="margin-top: 15px;">I'm not a checkbox engineer. I solve problems that others avoid. Whether it's a
+                failing TLS handshake, a misbehaving SIP trunk, a DNS propagation error or an AWS security
+                misconfiguration, I get to the root of it.</p>
+
+            <p style="margin-top: 15px;">To amplify my technical foundation, I pursued an MBA to better understand how
+                business, management and strategy intersect with engineering. This gives me a unique edge: I not only
+                build systems that work but I build systems that align with business goals.</p>
+        </section>
+
+        <section>
+            <h2>Core Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Linux System Administration</div>
+                <div class="skill-tag">Kubernetes & Docker</div>
+                <div class="skill-tag">AWS Cloud Infrastructure</div>
+                <div class="skill-tag">VoIP & SIP Engineering</div>
+                <div class="skill-tag">Network Architecture</div>
+                <div class="skill-tag">DNS & DNSSEC Management</div>
+                <div class="skill-tag">CI/CD & DevOps</div>
+                <div class="skill-tag">Full-Stack Development</div>
+                <div class="skill-tag">Information Security (ISO 27001)</div>
+                <div class="skill-tag">Compliance (PCI DSS, ISMS)</div>
+                <div class="skill-tag">NGINX & Reverse Proxy</div>
+                <div class="skill-tag">Monitoring (Prometheus/Grafana)</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Professional Experience</h2>
+
+            <div style="margin-bottom: 40px;">
+                <div class="job-header">
+                    <h3><span class="job-title">Advanced Support Engineer – Communications (APAC)</span></h3>
+                    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 8px;">
+                        <span style="font-weight: 600;">IPC Systems</span>
+                        <span class="job-duration">November 2025 - Present (3 months)</span>
+                    </div>
+                    <p class="job-location">Kuala Lumpur, Malaysia</p>
+                </div>
+                <ul>
+                    <li>Support mission-critical voice communication platforms for global financial trading operations,
+                        maintaining 99.99% uptime SLA</li>
+                    <li>Monitor and troubleshoot high-availability SIP infrastructures serving major financial
+                        institutions across multiple regions</li>
+                    <li>Manage Kubernetes deployments, troubleshoot pod crashes and ensure service recovery with minimal
+                        downtime</li>
+                    <li>Conduct advanced SIP ladder analysis and RTP diagnostics to resolve latency, jitter and media
+                        quality issues in real-time</li>
+                    <li>Collaborate with global NOC teams and financial clients to maintain strict security compliance
+                        and operational governance</li>
+                    <li>Manage integrations with voice recording systems and compliance monitoring platforms for
+                        regulatory adherence</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 40px;">
+                <div class="job-header">
+                    <h3><span class="job-title">Senior UC and Infrastructure Engineer</span></h3>
+                    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 8px;">
+                        <span style="font-weight: 600;">Nubitel</span>
+                        <span class="job-duration">July 2023 - November 2025 (2 years 5 months)</span>
+                    </div>
+                    <p class="job-location">Kuala Lumpur, Malaysia</p>
+                </div>
+                <ul>
+                    <li>Spearheaded the design and deployment of a global, multi-tenant VoIP infrastructure supporting
+                        thousands of concurrent SIP endpoints using FreePBX, AudioCodes SBC and Telcobridges, achieving
+                        99.999% uptime</li>
+                    <li>Engineered and maintained secure SIP routing with in-depth diagnostics of signaling paths, RTP
+                        media streams, SIP headers and SDP negotiation issues across NAT and firewall boundaries</li>
+                    <li>Developed and deployed full-stack web applications using React, Node.js/Express and PostgreSQL,
+                        incorporating secure authentication via JWT and file upload handling with Multer</li>
+                    <li>Architected and implemented multi-layer NGINX reverse proxy architecture for SSL termination,
+                        subdomain routing, load balancing and application isolation in Dockerized environments</li>
+                    <li>Designed end-to-end CI/CD workflows and infrastructure-as-code practices to automate application
+                        delivery pipelines on AWS EC2, RDS and S3</li>
+                    <li>Led the deployment of Proxmox-based VM clusters with monitoring using Prometheus/Grafana and
+                        centralized logging with Wazuh SIEM to ensure compliance with ISO 27001 and PCI DSS</li>
+                    <li>Supported ISMS implementation by helping ensure all departments follow security policies,
+                        reviewing information security policies and IT procedures including change request and service
+                        request workflows</li>
+                    <li>Participated in internal audits and external compliance audits, presenting evidence and
+                        explaining technical controls to auditors</li>
+                    <li>Built and enforced layered firewall and access policies across multiple data centers, supporting
+                        hybrid cloud environments with Zero Trust architecture</li>
+                    <li>Conducted deep packet inspection and SIP ladder tracing to resolve complex VoIP issues including
+                        silent call drops, one-way audio and mid-call re-INVITE failures</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 40px;">
+                <div class="job-header">
+                    <h3><span class="job-title">Unified Communication Engineer</span></h3>
+                    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 8px;">
+                        <span style="font-weight: 600;">Nubitel</span>
+                        <span class="job-duration">March 2021 - July 2023 (2 years 5 months)</span>
+                    </div>
+                    <p class="job-location">Kuala Lumpur, Malaysia</p>
+                </div>
+                <ul>
+                    <li>Aarenet Certified Expert (ACE) engineer specializing in IPBX configuration</li>
+                    <li>Managed voice policies and configurations for PBX and Microsoft Teams systems</li>
+                    <li>Deployed PBX and Session Border Controller (SBC) solutions including Aarenet Phone System,
+                        Microsoft Teams Phone System, Yeastar, Sangoma, Epygi, Audiocodes SBC and Telcobridge SBC</li>
+                    <li>Implemented Contact Centre solutions including Ameyo and Collab Contact Center</li>
+                    <li>Facilitated SIP troubleshooting and telephony integration (PRI to SIP, Analog to SIP
+                        conversions)</li>
+                    <li>Configured firewalls, switches, routers and network infrastructure</li>
+                    <li>Mentored junior technical team members and conducted training on new technologies</li>
+                    <li>Prepared technical documentation, RCAs and project documentation</li>
+                    <li>Provided remote and onsite customer support</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 40px;">
+                <div class="job-header">
+                    <h3><span class="job-title">System Engineer</span></h3>
+                    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 8px;">
+                        <span style="font-weight: 600;">EV Dynamic Sdn Bhd</span>
+                        <span class="job-duration">March 2020 - March 2021 (1 year 1 month)</span>
+                    </div>
+                    <p class="job-location">Subang Jaya, Selangor, Malaysia</p>
+                </div>
+                <ul>
+                    <li>Successfully deployed PBX System in the MRT Line 2 (Sungai Buloh-Serdang-Putrajaya), covering 1
+                        Depot and 9 stations</li>
+                    <li>Configured PBX System, Voice Recording System via RSPAN protocol, Voicemail System and Network
+                        Monitoring System</li>
+                    <li>Integrated PBX System with radio system, public announcement system and CCTV system</li>
+                    <li>Configured PBX Systems with PRI Line and E1 failover configuration</li>
+                    <li>Provided comprehensive system training to customers (Rapid Rail and PRASARANA)</li>
+                    <li>Prepared detailed Project Design, Operation and Maintenance documentation</li>
+                    <li>Conducted thorough testing including PAT, IFT and SAT</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 40px;">
+                <div class="job-header">
+                    <h3><span class="job-title">Assistant Project Engineer</span></h3>
+                    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 8px;">
+                        <span style="font-weight: 600;">TQERA Systems Sdn Bhd</span>
+                        <span class="job-duration">June 2019 - October 2019 (5 months)</span>
+                    </div>
+                    <p class="job-location">Subang Jaya, Selangor, Malaysia</p>
+                </div>
+                <ul>
+                    <li>Part-time role during final semester working in SCADA Team for TNB Contractor</li>
+                    <li>Monitored and supervised installation of Field Terminal Unit and Remote Terminal Unit in Stesen
+                        Suis 33kV</li>
+                    <li>Prepared documentation for FAT, PAT and SAT</li>
+                    <li>Ensured all testing met TNB expectations and requirements</li>
+                    <li>Managed company inventories and project claims</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="degree">Master of Business Administration (MBA)</div>
+                <div class="university">Universiti Teknologi MARA</div>
+                <div class="edu-details">October 2023 - September 2025 | CGPA: 3.74</div>
+            </div>
+            <div class="education-item">
+                <div class="degree">Bachelor of Engineering - Electrical and Electronics Engineering</div>
+                <div class="university">Universiti Putra Malaysia</div>
+                <div class="edu-details">2015 - 2020 | CGPA: 3.34</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Certifications & Continuous Learning</h2>
+            <div class="certifications-list">
+                <div class="cert-item">🎓 Ubuntu Linux Professional Certificate by Canonical (In Progress)</div>
+                <div class="cert-item">☁️ AWS Certified Solutions Architect - Professional (SAP-C02) Cert Prep</div>
+                <div class="cert-item">🔧 Learning Terraform</div>
+                <div class="cert-item">⚙️ Learning Ansible</div>
+                <div class="cert-item">🤖 Ansible for Automation Essential Training: Advanced Playbooks, Roles and
+                    Diverse Hosts</div>
+                <div class="cert-item">🐳 Docker Professional Certified</div>
+                <div class="cert-item">☸️ Kubernetes - Actively Learning & Practicing</div>
+            </div>
+        </section>
+
+        <section class="passion-section">
+            <h2>Tech Enthusiast & Personal Projects</h2>
+            <p class="passion-text">
+                <strong>I am just a tech enthusiast who works with passion.</strong> In my free time, I develop websites
+                as it is my medicine—my way to unwind and apply everything I learn at work.
+            </p>
+            <p class="passion-text">
+                I founded <strong>Vertechions</strong> (also known as Veritas Tech Solutions), a web development
+                business where I build websites using proper coding practices and modern technical stacks. Through this
+                venture, I've gained hands-on experience with full-stack development, DNS management, DNSSEC
+                implementation and infrastructure automation.
+            </p>
+            <p class="passion-text">
+                I manage my own DNS infrastructure, applying enterprise-level practices to my personal projects.
+                Currently, I'm implementing an AI chatbox on my website to enhance user interaction and provide
+                intelligent assistance to visitors. This project combines my passion for AI, web development and user
+                experience design.
+            </p>
+            <p class="passion-text">
+                Every technology I implement at work, I also apply to my own infrastructure. This hands-on approach
+                keeps me sharp and allows me to experiment with cutting-edge solutions in a real production environment.
+            </p>
+            <a href="https://vertechions.com" target="_blank" class="website-link">Visit https://vertechions.com</a>
+        </section>
+    </div>
+
+    <script>
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add intersection observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
