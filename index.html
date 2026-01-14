@@ -118,6 +118,37 @@
             }
         }
 
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .profile-image-container {
+            flex-shrink: 0;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 16px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 10px 40px var(--glow);
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(0, 217, 255, 0.5);
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
         h1 {
             font-family: 'JetBrains Mono', monospace;
             font-size: 3rem;
@@ -402,6 +433,11 @@
                 padding: 30px 25px;
             }
 
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
             .contact-info {
                 flex-direction: column;
                 gap: 15px;
@@ -409,6 +445,11 @@
 
             .skills-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
             }
         }
 
@@ -444,6 +485,10 @@
                 background: #000;
                 color: white;
             }
+
+            .profile-image {
+                border-color: #000;
+            }
         }
     </style>
 </head>
@@ -451,21 +496,29 @@
 <body>
     <div class="container">
         <header>
-            <h1>Rahman Saaban</h1>
-            <p class="subtitle">Cloud, VoIP & Infrastructure Architect | Tech Enthusiast</p>
-            <p class="tagline">"Full-stack technologist who understands technology from the lowest network layers to the
-                highest application logic"</p>
+            <div class="header-content">
+                <div class="profile-image-container">
+                    <img src="rahman-photo.jpg" alt="Rahman Saaban" class="profile-image">
+                </div>
+                <div class="header-text">
+                    <h1>Rahman Saaban</h1>
+                    <p class="subtitle">Cloud, VoIP & Infrastructure Architect | Tech Enthusiast</p>
+                    <p class="tagline">"Full-stack technologist who understands technology from the lowest network
+                        layers to the highest application logic"</p>
 
-            <div class="contact-info">
-                <div class="contact-item">
-                    <a href="tel:+60147191644">+60 147191644</a>
-                </div>
-                <div class="contact-item">
-                    <a href="mailto:rahmansaaban.excel@gmail.com">rahmansaaban.excel@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <a href="https://www.linkedin.com/in/rahman-saaban"
-                        target="_blank">linkedin.com/in/rahman-saaban</a>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <a href="tel:+60147191644">+60 147191644</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="mailto:rahmansaaban.excel@gmail.com">rahmansaaban.excel@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <a href="https://www.linkedin.com/in/rahman-saaban"
+                                target="_blank">linkedin.com/in/rahman-saaban</a>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </header>
@@ -473,7 +526,7 @@
         <section>
             <h2>Professional Summary</h2>
             <p>I am a full-stack technologist who understands technology from the lowest network layers to the highest
-                application logic. I don't just handle apps but I can also build the ecosystem that supports, secures and
+                application logic. I don't just handle apps, I can also build the ecosystem that supports, secures and
                 scales them.</p>
 
             <p style="margin-top: 15px;">From the moment a user opens a browser, I understand how DNS is resolved, how
@@ -497,7 +550,7 @@
 
             <p style="margin-top: 15px;">To amplify my technical foundation, I pursued an MBA to better understand how
                 business, management and strategy intersect with engineering. This gives me a unique edge: I not only
-                build systems that work but I build systems that align with business goals.</p>
+                build systems that work, I build systems that align with business goals.</p>
         </section>
 
         <section>
@@ -550,7 +603,7 @@
                 <div class="job-header">
                     <h3><span class="job-title">Senior UC and Infrastructure Engineer</span></h3>
                     <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 8px;">
-                        <span style="font-weight: 600;">Nubitel</span>
+                        <span style="font-weight: 600;"> Nubitel Technology Sdn Bhd</span>
                         <span class="job-duration">July 2023 - November 2025 (2 years 5 months)</span>
                     </div>
                     <p class="job-location">Kuala Lumpur, Malaysia</p>
@@ -585,7 +638,7 @@
                 <div class="job-header">
                     <h3><span class="job-title">Unified Communication Engineer</span></h3>
                     <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 8px;">
-                        <span style="font-weight: 600;">Nubitel</span>
+                        <span style="font-weight: 600;"> Nubitel Technology Sdn Bhd</span>
                         <span class="job-duration">March 2021 - July 2023 (2 years 5 months)</span>
                     </div>
                     <p class="job-location">Kuala Lumpur, Malaysia</p>
